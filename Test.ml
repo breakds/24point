@@ -17,13 +17,17 @@ let generate_sequence ( max : int ) ( len : int ) =
        try let c = next x in
            gen_iter c (x::accu)
        with OverflowError -> accu 
-  in gen_iter (init len) [];
-
-
-
-  
-
+  in gen_iter (init len) []
          
       
   
     
+let test_success ( lst : int list ) = 
+  if 0 = length (solve24 lst) then 0 else 1
+
+
+let batch_test seq = 
+  map test_success seq
+
+let rec sum ( lst : int list ) = 
+  fold_left (fun y x -> x + y) 0 lst
